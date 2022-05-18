@@ -26,7 +26,6 @@ def sitemap():
     return generate_sitemap(app)
 
 
-
 @app.route('/members', methods=['GET'])
 def get_all_members():
 
@@ -35,20 +34,24 @@ def get_all_members():
     return jsonify(members), 200
 
 @app.route('/member', methods=['GET'])
-def handle_member():
-    pass
+def handle_member(member):
+    member = jackson_family.handle_member()
+    return jsonify(member), 200
 
 @app.route('/add_member', methods=['POST'])
 def add_member():
     member = {
-        "name": request.get("name"),
-        "id": jackson_family._generateId()
+        "first_name": request.get("first_name"),
+        "id": jackson_family._generateId(),
+        "age": request.get("age")
     }
     jackson_family.add_member(member)
+    return jsonify(members), 200
 
 @app.route('/delete_member/<id>', methods=['DELETE'])
 def delete_member():
     id = request.get("id")
+    return jsonify(members), 200
     
 
 

@@ -17,31 +17,31 @@ class FamilyStructure:
             "id": self._generateId(),
             "first_name": "Michael",
             "last_name": last_name,
-            "age": 50 ,
+            "age": "50 deceased",
         },
         {
             "id": self._generateId(),
             "first_name": "Tito",
             "last_name": last_name,
-            "age": 100,
+            "age": 68,
         },
         {
             "id": self._generateId(),
             "first_name": "Jackie",
             "last_name": last_name,
-            "age": 100,
+            "age": 71,
         },
         {
             "id": self._generateId(),
             "first_name": "Jermaine",
             "last_name": last_name,
-            "age": 100,
+            "age": 67,
         },
         {
             "id": self._generateId(),
             "first_name": "Marlon",
             "last_name": last_name,
-            "age": 100,
+            "age": 65,
         }]
 
     # read-only: Use this method to generate random members ID's when adding members into the list
@@ -60,12 +60,9 @@ class FamilyStructure:
         
 
     def get_member(self, id):
-        # fill this method and update the return
-        # for member in _members:
-        #     if id == member.id
-        #     return member
-        
-        pass
+        for member in self._members: 
+            if id == member.id:
+                return member
 
     # this method is done, it returns a list with all the family members
     def get_all_members(self):
