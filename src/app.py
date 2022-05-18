@@ -33,8 +33,9 @@ def get_all_members():
     members = jackson_family.get_all_members()
     return jsonify(members), 200
 
-@app.route('/member', methods=['GET'])
-def handle_member(member):
+@app.route('/member/<id>', methods=['GET'])
+def single_member(id):
+    id = request.get("id")
     member = jackson_family.handle_member()
     return jsonify(member), 200
 
@@ -49,8 +50,9 @@ def add_member():
     return jsonify(members), 200
 
 @app.route('/delete_member/<id>', methods=['DELETE'])
-def delete_member():
+def delete_member(id):
     id = request.get("id")
+    jackson_family.delete_member(id)
     return jsonify(members), 200
     
 
